@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: springboot-github-actions
+spec:
+  selector:
+    matchLabels:
+      app: springboot-github-actions
+  template:
+    metadata:
+      labels:
+        app: springboot-github-actions
+    spec:
+      containers:
+        - name: springboot-github-actions
+          image: michaelc67/springboot-github-actions:main
+          ports:
+            - containerPort: 8080
+          env:
+            - name: FR_PERSO_SPRINGBOOTGITHUBACTIONS_HELLOPROP
+              value: "K8s property"

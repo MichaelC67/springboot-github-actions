@@ -14,11 +14,11 @@ jobs:
     steps:
       - name: Build with Maven
         run: mvn clean package -DskipTests
-      - name: Upload war
+      - name: Upload jar
         uses: actions/upload-artifact@v2
         with:
           name: jar
-          path: jar/*.war
+          path: target/*.jar
 
   push_to_registry:
     name: Push Docker image to Docker Hub
